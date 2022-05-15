@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Mem Slider</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+
+  <body>
+    <main class="page-main">
+      <article class="slider">
+        <div class="slider__content container">
+          <h1 class="visually-hidden">CSS Mem Slider</h1>
+
+          <input class="slider__toggle slider__toggle--1 hidden" type="radio" id="slider-toggle-1" name="slider-toggle" checked>
+          <input class="slider__toggle slider__toggle--2 hidden" type="radio" id="slider-toggle-2" name="slider-toggle">
+          <input class="slider__toggle slider__toggle--3 hidden" type="radio" id="slider-toggle-3" name="slider-toggle">
+          <input class="slider__toggle slider__toggle--4 hidden" type="radio" id="slider-toggle-4" name="slider-toggle">
+
+          <div class="slider__controls">
+            <label class="slider__control" for="slider-toggle-1" tabindex="0">
+              <span class="slider__button slider__button--1"></span>
+            </label>
+            <label class="slider__control" for="slider-toggle-2" tabindex="0">
+              <span class="slider__button slider__button--2"></span>
+            </label>
+            <label class="slider__control" for="slider-toggle-3" tabindex="0">
+              <span class="slider__button slider__button--3"></span>
+            </label>
+            <label class="slider__control" for="slider-toggle-4" tabindex="0">
+              <span class="slider__button slider__button--4"></span>
+            </label>
+          </div>
+
+          <ul class="slider__slides">
+            <li class="slider__slide">
+              <img src="img/slide-01.jpg" width="1280" height="720" alt="slide-01">
+            </li>
+            <li class="slider__slide">
+              <img src="img/slide-02.jpg" width="1280" height="720" alt="slide-02">
+            </li>
+            <li class="slider__slide">
+              <img src="img/slide-03.jpg" width="1280" height="720" alt="slide-03">
+            </li>
+            <li class="slider__slide">
+              <img src="img/slide-04.jpg" width="1280" height="720" alt="slide-04">
+            </li>
+          </ul>
+
+          <ul class="slider__captions">
+            <li class="slider__caption">Slide #1</li>
+            <li class="slider__caption">Slide #2</li>
+            <li class="slider__caption">Slide #3</li>
+            <li class="slider__caption">Slide #4</li>
+          </ul>
+        </div>
+      </article>
+    </main>
+  </body>
+
+</html>
