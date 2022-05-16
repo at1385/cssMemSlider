@@ -136,5 +136,42 @@ img {
   border: 2px solid var(--main-l);
   border-radius: 50%;
 
+  transition: 0.15s;
+
   cursor: pointer;
+}
+
+.slider__toggle ~ .slider__controls .slider__control:hover .slider__button,
+.slider__toggle ~ .slider__controls .slider__control:focus .slider__button {
+  background-color: var(--light-3xl);
+
+  border-color: var(--light-3xl);
+}
+
+.slider__toggle--1:checked ~ .slider__controls .slider__control:focus .slider__button--1,
+.slider__toggle--2:checked ~ .slider__controls .slider__control:focus .slider__button--2,
+.slider__toggle--3:checked ~ .slider__controls .slider__control:focus .slider__button--3,
+.slider__toggle--4:checked ~ .slider__controls .slider__control:focus .slider__button--4 {
+  background-color: transparent;
+}
+
+.slider__toggle ~ .slider__controls .slider__control:active .slider__button {
+  transform: scale(0.8);
+  opacity: 0.5;
+}
+
+.slider__toggle--1:checked ~ .slider__controls .slider__button--1,
+.slider__toggle--2:checked ~ .slider__controls .slider__button--2,
+.slider__toggle--3:checked ~ .slider__controls .slider__button--3,
+.slider__toggle--4:checked ~ .slider__controls .slider__button--4 {
+  background-color: transparent;
+}
+
+.slider__toggle--1:checked ~ .slider__controls .slider__control:hover .slider__button--1,
+.slider__toggle--2:checked ~ .slider__controls .slider__control:hover .slider__button--2,
+.slider__toggle--3:checked ~ .slider__controls .slider__control:hover .slider__button--3,
+.slider__toggle--4:checked ~ .slider__controls .slider__control:hover .slider__button--4 {
+  background-color: transparent;
+
+  border-color: var(--light-3xl);
 }
