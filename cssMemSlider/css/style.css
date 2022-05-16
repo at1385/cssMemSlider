@@ -3,7 +3,7 @@
   --light-3xl: #ffffff;
   --dark-2xl: #25282a;
 
-  --max-desktop-width: 1400px;
+  --max-desktop-width: 1300px;
   --max-mobile-width: 576px;
   --min-mobile-width: 320px;
 }
@@ -38,17 +38,17 @@ img {
 
 .visually-hidden {
   position: absolute;
-  clip: rect(1px, 1px, 1px, 1px);
+  clip: rect(0.1rem, 0.1rem, 0.1rem, 0.1rem);
   padding: 0;
   border: 0;
-  height: 1px;
-  width: 1px;
+  height: 0.1rem;
+  width: 0.1rem;
   overflow: hidden;
 }
 
 .container {
   max-width: var(--max-desktop-width);
-  padding: 0 6rem;
+  padding: 0 1.5rem;
   margin: 0 auto;
 }
 
@@ -60,7 +60,7 @@ img {
   display: flex;
 
   min-height: 100vh;
-  padding: 40px 0;
+  padding: 4rem 0;
 
   background-color: var(--dark-2xl);
 }
@@ -74,8 +74,8 @@ img {
   grid-template-columns: 1fr auto;
   grid-template-areas:
     "slide slide"
-    "caption controls";
-  gap: 20px;
+    "captions controls";
+  gap: 2rem;
 }
 
 .slider__slides,
@@ -106,14 +106,16 @@ img {
 }
 
 .slider__slide {
+  width: 100%;
+
   border-radius: 1rem;
 
   overflow: hidden;
 }
 
-
 .slider__captions {
-  grid-area: caption;
+  grid-area: captions;
+  align-self: center;
 }
 
 .slider__caption {
@@ -159,7 +161,7 @@ img {
 }
 
 .slider__control {
-  padding: 10px;
+  padding: 1rem;
 
   outline: none;
 
@@ -173,7 +175,7 @@ img {
 
   background-color: var(--main-l);
 
-  border: 2px solid var(--main-l);
+  border: 0.2rem solid var(--main-l);
   border-radius: 50%;
 
   transition: 0.15s;
@@ -214,4 +216,37 @@ img {
   background-color: transparent;
 
   border-color: var(--light-3xl);
+}
+
+@media (max-width: 576px) {
+  .container {
+    max-width: var(--max-mobile-width);
+  }
+
+  .slider__content {
+    grid-template-columns: 1fr;
+    grid-template-areas: "slide" "controls" "captions";
+    gap: 0;
+  }
+
+  .slider__slides {
+    margin-bottom: 1rem;
+  }
+
+  .slider__controls {
+    justify-self: center;
+  }
+
+  .slider__control {
+    padding: 0.8rem;
+  }
+
+  .slider__button {
+    width: 1.3rem;
+    height: 1.3rem;
+  }
+
+  .slider__caption {
+    font-size: 1.7rem;
+  }
 }
