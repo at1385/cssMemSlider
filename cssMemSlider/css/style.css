@@ -96,7 +96,13 @@ img {
 
 .slider__slide,
 .slider__caption {
+  position: relative;
+
   flex-shrink: 0;
+
+  opacity: 0;
+
+  transition: 0.65s;
 }
 
 .slider__slide {
@@ -105,12 +111,46 @@ img {
   overflow: hidden;
 }
 
+
 .slider__captions {
   grid-area: caption;
 }
 
 .slider__caption {
   width: 100%;
+}
+
+.slider__slide--1,
+.slider__caption--1 {
+  transform: translateX(0);
+}
+
+.slider__slide--2,
+.slider__caption--2 {
+  transform: translateX(-100%);
+}
+
+.slider__slide--3,
+.slider__caption--3 {
+  transform: translateX(-200%);
+}
+
+.slider__slide--4,
+.slider__caption--4 {
+  transform: translateX(-300%);
+}
+
+.slider__toggle--1:checked ~ .slider__slides .slider__slide--1,
+.slider__toggle--2:checked ~ .slider__slides .slider__slide--2,
+.slider__toggle--3:checked ~ .slider__slides .slider__slide--3,
+.slider__toggle--4:checked ~ .slider__slides .slider__slide--4,
+.slider__toggle--1:checked ~ .slider__captions .slider__caption--1,
+.slider__toggle--2:checked ~ .slider__captions .slider__caption--2,
+.slider__toggle--3:checked ~ .slider__captions .slider__caption--3,
+.slider__toggle--4:checked ~ .slider__captions .slider__caption--4 {
+  z-index: 1;
+
+  opacity: 1;
 }
 
 .slider__controls {
