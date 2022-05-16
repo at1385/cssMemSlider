@@ -1,0 +1,252 @@
+:root {
+  --main-l: #71abff;
+  --light-3xl: #ffffff;
+  --dark-2xl: #25282a;
+
+  --max-desktop-width: 1300px;
+  --max-mobile-width: 576px;
+  --min-mobile-width: 320px;
+}
+
+html {
+  box-sizing: border-box;
+
+  font-size: 10px;
+}
+
+* {
+  box-sizing: inherit;
+}
+
+body {
+  min-width: var(--min-mobile-width);
+  margin: 0;
+
+  font-family: "Arial", sans-serif;
+  font-weight: 400;
+  font-size: 2rem;
+  color: var(--light-3xl);
+  line-height: 1.2;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+
+  vertical-align: top;
+}
+
+.visually-hidden {
+  position: absolute;
+  clip: rect(0.1rem, 0.1rem, 0.1rem, 0.1rem);
+  padding: 0;
+  border: 0;
+  height: 0.1rem;
+  width: 0.1rem;
+  overflow: hidden;
+}
+
+.container {
+  max-width: var(--max-desktop-width);
+  padding: 0 1.5rem;
+  margin: 0 auto;
+}
+
+.hidden {
+  display: none;
+}
+
+.page-main {
+  display: flex;
+
+  min-height: 100vh;
+  padding: 4rem 0;
+
+  background-color: var(--dark-2xl);
+}
+
+.slider {
+  margin: auto;
+}
+
+.slider__content {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    "slide slide"
+    "captions controls";
+  gap: 2rem;
+}
+
+.slider__slides,
+.slider__captions {
+  display: flex;
+
+  padding: 0;
+  margin: 0;
+
+  list-style: none;
+
+  overflow: hidden;
+}
+
+.slider__slides {
+  grid-area: slide;
+}
+
+.slider__slide,
+.slider__caption {
+  position: relative;
+
+  flex-shrink: 0;
+
+  opacity: 0;
+
+  transition: 0.65s;
+}
+
+.slider__slide {
+  width: 100%;
+
+  border-radius: 1rem;
+
+  overflow: hidden;
+}
+
+.slider__captions {
+  grid-area: captions;
+  align-self: center;
+}
+
+.slider__caption {
+  width: 100%;
+}
+
+.slider__slide--1,
+.slider__caption--1 {
+  transform: translateX(0);
+}
+
+.slider__slide--2,
+.slider__caption--2 {
+  transform: translateX(-100%);
+}
+
+.slider__slide--3,
+.slider__caption--3 {
+  transform: translateX(-200%);
+}
+
+.slider__slide--4,
+.slider__caption--4 {
+  transform: translateX(-300%);
+}
+
+.slider__toggle--1:checked ~ .slider__slides .slider__slide--1,
+.slider__toggle--2:checked ~ .slider__slides .slider__slide--2,
+.slider__toggle--3:checked ~ .slider__slides .slider__slide--3,
+.slider__toggle--4:checked ~ .slider__slides .slider__slide--4,
+.slider__toggle--1:checked ~ .slider__captions .slider__caption--1,
+.slider__toggle--2:checked ~ .slider__captions .slider__caption--2,
+.slider__toggle--3:checked ~ .slider__captions .slider__caption--3,
+.slider__toggle--4:checked ~ .slider__captions .slider__caption--4 {
+  z-index: 1;
+
+  opacity: 1;
+}
+
+.slider__controls {
+  display: flex;
+  grid-area: controls;
+}
+
+.slider__control {
+  padding: 1rem;
+
+  outline: none;
+
+  cursor: pointer;
+}
+
+.slider__button {
+  display: block;
+  width: 2rem;
+  height: 2rem;
+
+  background-color: var(--main-l);
+
+  border: 0.2rem solid var(--main-l);
+  border-radius: 50%;
+
+  transition: 0.15s;
+
+  cursor: pointer;
+}
+
+.slider__toggle ~ .slider__controls .slider__control:hover .slider__button,
+.slider__toggle ~ .slider__controls .slider__control:focus .slider__button {
+  background-color: var(--light-3xl);
+
+  border-color: var(--light-3xl);
+}
+
+.slider__toggle--1:checked ~ .slider__controls .slider__control:focus .slider__button--1,
+.slider__toggle--2:checked ~ .slider__controls .slider__control:focus .slider__button--2,
+.slider__toggle--3:checked ~ .slider__controls .slider__control:focus .slider__button--3,
+.slider__toggle--4:checked ~ .slider__controls .slider__control:focus .slider__button--4 {
+  background-color: transparent;
+}
+
+.slider__toggle ~ .slider__controls .slider__control:active .slider__button {
+  transform: scale(0.8);
+  opacity: 0.5;
+}
+
+.slider__toggle--1:checked ~ .slider__controls .slider__button--1,
+.slider__toggle--2:checked ~ .slider__controls .slider__button--2,
+.slider__toggle--3:checked ~ .slider__controls .slider__button--3,
+.slider__toggle--4:checked ~ .slider__controls .slider__button--4 {
+  background-color: transparent;
+}
+
+.slider__toggle--1:checked ~ .slider__controls .slider__control:hover .slider__button--1,
+.slider__toggle--2:checked ~ .slider__controls .slider__control:hover .slider__button--2,
+.slider__toggle--3:checked ~ .slider__controls .slider__control:hover .slider__button--3,
+.slider__toggle--4:checked ~ .slider__controls .slider__control:hover .slider__button--4 {
+  background-color: transparent;
+
+  border-color: var(--light-3xl);
+}
+
+@media (max-width: 576px) {
+  .container {
+    max-width: var(--max-mobile-width);
+  }
+
+  .slider__content {
+    grid-template-columns: 1fr;
+    grid-template-areas: "slide" "controls" "captions";
+    gap: 0;
+  }
+
+  .slider__slides {
+    margin-bottom: 1rem;
+  }
+
+  .slider__controls {
+    justify-self: center;
+  }
+
+  .slider__control {
+    padding: 0.8rem;
+  }
+
+  .slider__button {
+    width: 1.3rem;
+    height: 1.3rem;
+  }
+
+  .slider__caption {
+    font-size: 1.7rem;
+  }
+}
